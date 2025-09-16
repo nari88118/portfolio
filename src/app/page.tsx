@@ -1,62 +1,129 @@
+'use client';
+
+import Header from '@/components/Header';
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      <div className="container mx-auto px-4 py-16">
-        <header className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-4">
-            <span className="text-cyan-400">あなたの名前</span> のクリエイティブワールド
-          </h1>
-          <p className="text-xl text-gray-300 mb-4">
-            プログラマー | ゲームクリエイター | イラストレーター | 作曲家
-          </p>
-          <p className="text-base text-gray-400 mb-8">
-            コードとゲームと絵と音楽で表現するマルチクリエイター
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#gallery"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg transition-colors"
-            >
-              作品を見る
-            </a>
-            <a
-              href="#contact"
-              className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-6 py-3 rounded-lg transition-colors"
-            >
-              連絡先
-            </a>
+    <div className="min-h-screen bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900">
+      <Header />
+      
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/api/images/hero-illustration.png" 
+            alt="背景イラスト" 
+            className="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
+            onError={(e) => {
+              const target = e.currentTarget as HTMLImageElement;
+              target.style.display = 'none';
+              const fallback = target.nextElementSibling as HTMLDivElement;
+              if (fallback) {
+                fallback.style.display = 'block';
+              }
+            }}
+          />
+          <div className="hidden absolute inset-0 bg-gradient-to-br from-sky-400/5 via-purple-400/3 to-pink-400/5"></div>
+        </div>
+        
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 via-gray-800/70 to-slate-900/80"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center space-y-12">
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-light text-gray-100 leading-tight">
+                創作の
+                <span className="block text-sky-400 drop-shadow-lg">世界へようこそ</span>
+              </h1>
+              <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                ゲーム開発、イラスト、音楽制作を通じて<br />
+                新しい体験と感動をお届けします
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex items-center space-x-3 px-6 py-3 bg-sky-400/10 backdrop-blur-md rounded-full border border-sky-400/30 shadow-lg">
+                <span className="text-sky-400 text-xl">🎮</span>
+                <span className="text-base text-sky-400 font-medium">Unity</span>
+              </div>
+              <div className="flex items-center space-x-3 px-6 py-3 bg-purple-400/10 backdrop-blur-md rounded-full border border-purple-400/30 shadow-lg">
+                <span className="text-purple-400 text-xl">🎵</span>
+                <span className="text-base text-purple-400 font-medium">VOCALOID</span>
+              </div>
+              <div className="flex items-center space-x-3 px-6 py-3 bg-pink-400/10 backdrop-blur-md rounded-full border border-pink-400/30 shadow-lg">
+                <span className="text-pink-400 text-xl">🎨</span>
+                <span className="text-base text-pink-400 font-medium">Digital Art</span>
+              </div>
+            </div>
+            
+            <div className="flex justify-center space-x-6 pt-8">
+              <a href="#about" className="px-8 py-4 bg-sky-400/20 hover:bg-sky-400/30 text-sky-400 rounded-xl transition-all duration-300 backdrop-blur-md border border-sky-400/30 shadow-lg hover:shadow-xl hover:scale-105">
+                作品を見る
+              </a>
+              <a href="/calendar" className="px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-sky-400 rounded-xl transition-all duration-300 backdrop-blur-md border border-gray-600/30 shadow-lg hover:shadow-xl hover:scale-105">
+                カレンダー
+              </a>
+            </div>
           </div>
-        </header>
+        </div>
+        
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-sky-400/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-sky-400/20 animate-float">
+          <span className="text-4xl">✨</span>
+        </div>
+        
+        <div className="absolute top-1/4 -left-16 w-24 h-24 bg-purple-400/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-purple-400/20 animate-float-delay">
+          <span className="text-3xl">💫</span>
+        </div>
+        
+        <div className="absolute bottom-1/4 right-10 w-20 h-20 bg-pink-400/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-pink-400/20 animate-float-slow">
+          <span className="text-2xl">🌟</span>
+        </div>
+        
+        <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-yellow-400/20 animate-float">
+          <span className="text-xl">⭐</span>
+        </div>
+        
+        <div className="absolute bottom-1/3 right-1/3 w-14 h-14 bg-green-400/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-green-400/20 animate-float-delay">
+          <span className="text-lg">💎</span>
+        </div>
+        
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <a href="#about" className="w-8 h-8 border border-sky-400/50 rounded-full flex items-center justify-center text-sky-400 hover:bg-sky-400/10 transition-colors">
+            ↓
+          </a>
+        </div>
+      </section>
 
-        <section id="about" className="mb-16">
-          <div className="bg-gray-800 rounded-lg p-8 shadow-lg border border-gray-700">
-            <h2 className="text-3xl font-bold text-white mb-6">プロフィール</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl mb-3">💻</div>
-                <h3 className="text-lg font-bold text-cyan-400 mb-2">プログラミング</h3>
-                <p className="text-gray-300 text-sm">
-                  TypeScript、Python、React、Next.jsを使ったWebアプリケーション開発が得意です。
+      <div className="container mx-auto px-4 pt-16 pb-16">
+        <section id="about" className="mb-24">
+          <div className="border-l-4 border-sky-400 pl-8 mb-8">
+            <h2 className="text-xl font-light text-gray-100 mb-12">About</h2>
+          </div>
+          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-10 border border-gray-700/50">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div className="group">
+                <div className="w-12 h-12 bg-sky-400/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-sky-400/20 transition-colors">
+                  <span className="text-sky-400 text-xl">💻</span>
+                </div>
+                <h3 className="text-base font-medium text-gray-200 mb-3">ゲーム・プログラム開発</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  TypeScript、Python、React、Next.jsを使ったWebアプリケーション開発とUnityを使ったゲーム開発をしています。
                 </p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🎮</div>
-                <h3 className="text-lg font-bold text-cyan-400 mb-2">ゲーム制作</h3>
-                <p className="text-gray-300 text-sm">
-                  Unityを使ったゲーム開発をしています。unityroomで作品を公開中です。
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🎨</div>
-                <h3 className="text-lg font-bold text-cyan-400 mb-2">イラスト</h3>
-                <p className="text-gray-300 text-sm">
+              <div className="group">
+                <div className="w-12 h-12 bg-sky-400/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-sky-400/20 transition-colors">
+                  <span className="text-sky-400 text-xl">🎨</span>
+                </div>
+                <h3 className="text-base font-medium text-gray-200 mb-3">イラスト</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
                   アマチュアレベルですが、pixivで作品を公開しています。デジタルアートが特に好きです。
                 </p>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🎵</div>
-                <h3 className="text-lg font-bold text-cyan-400 mb-2">作曲</h3>
-                <p className="text-gray-300 text-sm">
+              <div className="group">
+                <div className="w-12 h-12 bg-sky-400/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-sky-400/20 transition-colors">
+                  <span className="text-sky-400 text-xl">🎵</span>
+                </div>
+                <h3 className="text-base font-medium text-gray-200 mb-3">作曲</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
                   初音ミクを使った楽曲制作をしています。VOCALOIDを使ったオリジナル楽曲の作成が趣味です。
                 </p>
               </div>
@@ -64,218 +131,129 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">スキル・使用技術</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
-                <span className="text-2xl mr-2">💻</span>
-                プログラミング
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {['TypeScript', 'Python', 'React', 'Next.js', 'JavaScript', 'Node.js'].map((skill) => (
-                  <div key={skill} className="bg-gray-700 p-2 rounded text-center">
-                    <span className="text-gray-300 text-sm">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
-                <span className="text-2xl mr-2">🎮</span>
-                ゲーム制作
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {['Unity', 'C#', 'Unity 2D', 'Unity 3D', 'Blender', 'Aseprite'].map((skill) => (
-                  <div key={skill} className="bg-gray-700 p-2 rounded text-center">
-                    <span className="text-gray-300 text-sm">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
-                <span className="text-2xl mr-2">🎨</span>
-                イラスト・デザイン
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {['Photoshop', 'Illustrator', 'Clip Studio', 'Procreate', 'Figma', 'GIMP'].map((skill) => (
-                  <div key={skill} className="bg-gray-700 p-2 rounded text-center">
-                    <span className="text-gray-300 text-sm">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
-                <span className="text-2xl mr-2">🎵</span>
-                音楽制作
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {['初音ミク', 'VOCALOID', 'Cubase', 'FL Studio', 'Audacity', 'MuseScore'].map((skill) => (
-                  <div key={skill} className="bg-gray-700 p-2 rounded text-center">
-                    <span className="text-gray-300 text-sm">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section id="gallery" className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">作品ギャラリー</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: 'ポートフォリオサイト', 
-                category: 'プログラミング', 
-                description: 'Next.js + TypeScriptで構築したレスポンシブなポートフォリオサイト。Tailwind CSSでスタイリング。',
-                icon: '💻',
-                tech: 'Next.js, TypeScript'
-              },
-              { 
-                title: 'ToDo管理アプリ', 
-                category: 'プログラミング', 
-                description: 'React + Pythonで作成したタスク管理アプリ。ユーザー認証とリアルタイム更新機能付き。',
-                icon: '💻',
-                tech: 'React, Python'
-              },
-              { 
-                title: '2Dアクションゲーム', 
-                category: 'ゲーム', 
-                description: 'Unityで作成した2Dアクションゲーム。unityroomで公開中。シンプルな操作で楽しめるゲームです。',
-                icon: '🎮',
-                tech: 'Unity, C#'
-              },
-              { 
-                title: 'パズルゲーム', 
-                category: 'ゲーム', 
-                description: 'シンプルなパズルゲーム。ゲームジャムで作成した作品で、シンプルなルールで遊べます。',
-                icon: '🎮',
-                tech: 'Unity, C#'
-              },
-              { 
-                title: 'オリジナルキャラクター', 
-                category: 'イラスト', 
-                description: 'pixivで公開中のオリジナルキャラクターイラスト。デジタルアートで描いた趣味作品です。',
-                icon: '🎨',
-                tech: 'Clip Studio'
-              },
-              { 
-                title: 'ミク楽曲「夜空の向こう」', 
-                category: '作曲', 
-                description: '初音ミクを使用したオリジナル楽曲。ポップスとエレクトロニカを融合させた楽曲です。',
-                icon: '🎵',
-                tech: 'VOCALOID, Cubase'
-              },
-              { 
-                title: 'instrumental「静寂」', 
-                category: '作曲', 
-                description: 'アンビエント系のインストゥルメンタル楽曲。作業用BGMとしても人気です。',
-                icon: '🎵',
-                tech: 'FL Studio'
-              },
-              { 
-                title: 'UI/UXデザイン', 
-                category: 'イラスト', 
-                description: 'モバイルアプリのUI設計とアイコンデザイン。使いやすさを重視したデザインです。',
-                icon: '🎨',
-                tech: 'Figma, Illustrator'
-              }
-            ].map((work, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700">
-                <div className="bg-gray-700 h-48 rounded-lg mb-4 flex flex-col items-center justify-center">
-                  <span className="text-4xl mb-2">{work.icon}</span>
-                  <span className="text-gray-400 text-sm">{work.tech}</span>
-                </div>
-                <div className="mb-2">
-                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${
-                    work.category === 'プログラミング' ? 'bg-blue-900 text-blue-300' :
-                    work.category === 'ゲーム' ? 'bg-green-900 text-green-300' :
-                    work.category === 'イラスト' ? 'bg-pink-900 text-pink-300' :
-                    'bg-purple-900 text-purple-300'
-                  }`}>
-                    {work.category}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{work.title}</h3>
-                <p className="text-gray-300 mb-4 text-sm">
-                  {work.description}
-                </p>
-                <div className="flex space-x-2">
-                  <a
-                    href="#"
-                    className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
-                  >
-                    詳細を見る
-                  </a>
+        <section id="gallery" className="mb-24">
+          <div className="border-l-4 border-sky-400 pl-8 mb-8">
+            <h2 className="text-xl font-light text-gray-100">Works</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a 
+              href="https://www.nicovideo.jp/user/141097430"
+              className="group bg-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 hover:border-sky-400/30 transition-all duration-300 block cursor-pointer hover:scale-[1.02] hover:shadow-xl"
+            >
+              <div className="h-56 bg-gray-700/50 flex items-center justify-center">
+                <img 
+                  src="/api/images/music-thumbnail.png" 
+                  alt="音楽作品のサムネイル" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLDivElement;
+                    if (fallback) {
+                      fallback.style.display = 'flex';
+                    }
+                  }}
+                />
+                <div className="hidden w-full h-full bg-gray-700 flex-col items-center justify-center">
+                  <span className="text-4xl mb-2">🎵</span>
+                  <span className="text-gray-500 text-sm">画像を追加してください</span>
                 </div>
               </div>
-            ))}
+              <div className="p-6">
+                <h3 className="text-base font-medium text-gray-200 mb-2 group-hover:text-sky-400 transition-colors">音楽作品</h3>
+                <p className="text-gray-400 text-sm mb-4 leading-relaxed">VOCALOIDを使ったオリジナル楽曲</p>
+                <div className="inline-flex items-center text-sky-400 group-hover:text-sky-300 transition-colors text-sm group-hover:translate-x-1 duration-300">
+                  View →
+                </div>
+              </div>
+            </a>
+
+            <a 
+              href="https://unityroom.com/users/pujc306k1yshb94d5nzr"
+              className="group bg-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 hover:border-sky-400/30 transition-all duration-300 block cursor-pointer hover:scale-[1.02] hover:shadow-xl"
+            >
+              <div className="h-56 bg-gray-700/50 flex items-center justify-center">
+                <img 
+                  src="/api/images/game-thumbnail.png" 
+                  alt="ゲーム作品のサムネイル" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLDivElement;
+                    if (fallback) {
+                      fallback.style.display = 'flex';
+                    }
+                  }}
+                />
+                <div className="hidden w-full h-full bg-gray-700 flex-col items-center justify-center">
+                  <span className="text-4xl mb-2">🎮</span>
+                  <span className="text-gray-500 text-sm">画像を追加してください</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-base font-medium text-gray-200 mb-2 group-hover:text-sky-400 transition-colors">ゲーム作品</h3>
+                <p className="text-gray-400 text-sm mb-4 leading-relaxed">Unityで制作した2Dアクションゲーム</p>
+                <div className="inline-flex items-center text-sky-400 group-hover:text-sky-300 transition-colors text-sm group-hover:translate-x-1 duration-300">
+                  View →
+                </div>
+              </div>
+            </a>
+
+            <a 
+              href="https://www.pixiv.net/dashboard/works"
+              className="group bg-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/30 hover:border-sky-400/30 transition-all duration-300 block cursor-pointer hover:scale-[1.02] hover:shadow-xl"
+            >
+              <div className="h-56 bg-gray-700/50 flex items-center justify-center">
+                <img 
+                  src="/api/images/art-thumbnail.png" 
+                  alt="イラスト作品のサムネイル" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLDivElement;
+                    if (fallback) {
+                      fallback.style.display = 'flex';
+                    }
+                  }}
+                />
+                <div className="hidden w-full h-full bg-gray-700 flex-col items-center justify-center">
+                  <span className="text-4xl mb-2">🎨</span>
+                  <span className="text-gray-500 text-sm">画像を追加してください</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-base font-medium text-gray-200 mb-2 group-hover:text-sky-400 transition-colors">イラスト作品</h3>
+                <p className="text-gray-400 text-sm mb-4 leading-relaxed">デジタルアートとオリジナルキャラクター</p>
+                <div className="inline-flex items-center text-sky-400 group-hover:text-sky-300 transition-colors text-sm group-hover:translate-x-1 duration-300">
+                  View →
+                </div>
+              </div>
+            </a>
           </div>
         </section>
 
 
-        <section id="contact" className="text-center">
-          <div className="bg-gray-800 rounded-lg p-8 shadow-lg border border-gray-700">
-            <h2 className="text-3xl font-bold text-white mb-6">連絡先</h2>
-            <p className="text-gray-300 mb-8">
+        <section id="contact" className="mb-16">
+          <div className="border-l-4 border-sky-400 pl-8 mb-8">
+            <h2 className="text-xl font-light text-gray-100">Contact</h2>
+          </div>
+          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-10 border border-gray-700/50 text-center">
+            <p className="text-gray-400 mb-12 text-sm leading-relaxed max-w-md mx-auto">
               作品やスキルに関する質問、情報交換などがありましたらお気軽にどうぞ。<br />
               （ご依頼は現在受け付けておりません）
             </p>
             
-            
-            <div className="flex justify-center space-x-6">
-              <a
-                href="mailto:your.email@example.com"
-                className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg transition-colors"
-              >
-                メール
-              </a>
-              <a
-                href="https://twitter.com/yourusername"
-                className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-6 py-3 rounded-lg transition-colors"
-              >
-                Twitter
-              </a>
-            </div>
-            
-            <div className="mt-8 pt-6 border-t border-gray-700">
-              <p className="text-sm text-gray-400 mb-4">作品を見る</p>
-              <div className="flex justify-center space-x-6">
-                <a
-                  href="https://github.com/yourusername"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="https://unityroom.com/users/yourusername"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  unityroom
-                </a>
-                <a
-                  href="https://www.pixiv.net/users/youruserid"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  pixiv
-                </a>
-                <a
-                  href="https://www.youtube.com/channel/yourchannel"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  YouTube
-                </a>
-                <a
-                  href="https://soundcloud.com/yourusername"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  SoundCloud
-                </a>
+            <div className="space-y-3">
+              <div className="flex items-center justify-center space-x-3">
+                <span className="text-gray-400 text-sm">Email</span>
+                <a href="mailto:your.email@example.com" className="text-sky-400 hover:text-sky-300 transition-colors text-sm">your.email@example.com</a>
+              </div>
+              <div className="flex items-center justify-center space-x-3">
+                <span className="text-gray-400 text-sm">Twitter</span>
+                <a href="https://twitter.com/yourusername" className="text-sky-400 hover:text-sky-300 transition-colors text-sm">@yourusername</a>
               </div>
             </div>
           </div>
